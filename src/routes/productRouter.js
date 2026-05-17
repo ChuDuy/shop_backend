@@ -19,8 +19,7 @@ router.post("/",
 );
 // Get all product
 router.get("/",
-    authMiddleware,
-    adminMiddleware, 
+
     GetAllProduct,
 );
 // get single product

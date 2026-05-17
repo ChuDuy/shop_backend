@@ -4,6 +4,16 @@ info:
   title: API cửa hàng
   version: 1.0.0
 
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - BearerAuth: []
+
 paths:
 
   /products:
