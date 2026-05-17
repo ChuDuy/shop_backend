@@ -13,6 +13,20 @@
 
  ---
 
+## Run project
+
+npm run dev
+
+
+---
+
+## Seed database
+
+npm run seed
+
+
+---
+
  ## Environment variable
  Create .env file
  MONGO_URI=your_mongodb_uri
