@@ -1,13 +1,13 @@
 import express from "express";
 import swaggerUi from "swagger-ui-express";
 import YAML from "yamljs";
-const app =express();
-const swaggerDocument = YAML.load("./swagger.yaml");
-app.use(express.json());
+
 import productRoutes from "./routes/productRouter.js";
 import authRoutes from "./routes/authRoutes.js";
 import errorMiddleware from "./middleware/errorMiddleware.js";
-
+const app =express();
+const swaggerDocument = YAML.load("./swagger.yaml");
+app.use(express.json());
 app.get("/", (req , res)=>{
     res.send(
         " Hello Backend "

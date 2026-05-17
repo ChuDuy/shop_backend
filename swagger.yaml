@@ -1,7 +1,7 @@
 openapi: 3.0.0
 
 info:
-  title: Shop API
+  title: API cửa hàng
   version: 1.0.0
 
 paths:
@@ -11,90 +11,129 @@ paths:
     get:
       summary: Get all products
 
+      responses:
+        200:
+          description: Get all products success
+
     post:
       summary: Create product
+
       requestBody:
-      required: true
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                price:
+                  type: number
+                stock:
+                  type: number
 
-    content:
-      application/json:
+      responses:
+        201:
+          description: Product created
 
-    schema :
-      type : object
-
-    properties :
-    name : 
-      type : string
-    price :
-      type : number
-    stock :
-    type : number
   /products/{id}:
 
     get:
       summary: Get single product
 
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+
+      responses:
+        200:
+          description: Get single product success
+
     put:
       summary: Update product
-    requestBody:
-      required: true
 
-    content:
-      application/json:
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
 
-    schema :
-      type : object
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                price:
+                  type: number
+                stock:
+                  type: number
 
-    properties :
-    name : 
-      type : string
-    price :
-      type : number
-    stock :
-      type : number
+      responses:
+        200:
+          description: Product updated
+
     delete:
       summary: Delete product
+
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+
+      responses:
+        200:
+          description: Product deleted
 
   /api/auth/register:
 
     post:
       summary: Register user
-    requestBody:
-      required: true
 
-    content:
-      application/json:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                name:
+                  type: string
+                email:
+                  type: string
+                password:
+                  type: string
 
-    schema :
-      type : object
-
-    properties :
-    name : 
-      type : string
-    email:
-      type : string
-
-    password :
-      type : string
+      responses:
+        201:
+          description: Register success
 
   /api/auth/login:
 
     post:
       summary: Login user
-    requestBody:
-      required: true
 
-    content:
-      application/json:
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                email:
+                  type: string
+                password:
+                  type: string
 
-    schema :
-      type : object
-
-    properties :
-
-    email:
-     type : string
-
-    password :
-      type : string
-
+      responses:
+        200:
+          description: Login success
